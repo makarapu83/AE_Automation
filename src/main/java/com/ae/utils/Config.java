@@ -7,10 +7,11 @@ import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import junit.framework.Assert;
+
 
 public class Config {
 	protected static String profile;
@@ -18,7 +19,8 @@ public class Config {
 	public static Properties aeProperties;
 	public static String aeAppURL;
 	
-  @BeforeSuite(alwaysRun= true)
+  @SuppressWarnings("deprecation")
+@BeforeSuite(alwaysRun= true)
   public void setupSuite() throws IOException {
 	  
 	  profile = System.getenv("AE_ENV");
