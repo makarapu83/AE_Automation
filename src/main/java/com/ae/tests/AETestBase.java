@@ -4,7 +4,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-public class AETestBase {
+import com.ae.utils.Config;
+
+public class AETestBase extends Config{
 	
 	
 	@BeforeMethod(alwaysRun=true)
@@ -34,4 +36,9 @@ public class AETestBase {
 			break;
 		}
 	}  
+	
+	public void userLoginByRole(String role){
+		String user = aeProperties.getProperty(role+".username."+profile);
+		String password = aeProperties.getProperty(role+".password."+profile);
+	}
 }
